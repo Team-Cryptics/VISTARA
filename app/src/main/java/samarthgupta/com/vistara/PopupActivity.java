@@ -15,7 +15,7 @@ public class PopupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_popup);
 
-        notific = getIntent().getStringExtra("notific");
+        notific = getIntent().getStringExtra("Notification");
         ((TextView) findViewById(R.id.tvNotific)).setText(notific);
 
         tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
