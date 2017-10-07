@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorPrimaryDark"
+    android:alpha="0.8"
+    android:layout_width="200dp"
+    android:layout_height="200dp"
+    tools:context="samarthgupta.com.vistara.PopupActivity">
+
+    <TextView
+        android:id="@+id/tvNotific"
+        android:text="text"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:gravity="center"
+        android:padding="6dp"
+        android:textColor="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
