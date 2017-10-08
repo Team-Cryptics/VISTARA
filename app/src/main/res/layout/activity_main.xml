@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,7 +9,8 @@
     <RelativeLayout
         android:background="#FFFFFF"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:id="@+id/ll_tb">
 
         <ImageView
             android:layout_width="50dp"
@@ -23,17 +24,71 @@
         android:background="@drawable/vistara"
         android:alpha="0.7"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/ll_tb">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tv_temp"
             android:gravity="center"
+            android:padding="5sp"
+            android:textStyle="bold"
             android:textSize="30sp"
             android:textColor="#000000"
-            android:text="sam"/>
+            android:text="Beacon"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_alignParentBottom="true"
+        android:background="#5a90ae"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:padding="10sp"
+            android:layout_weight="1"
+            android:id="@+id/iv_speech"
+            android:src="@drawable/a"/>
+
+        <View
+            android:layout_width="1sp"
+            android:layout_height="match_parent"
+            android:background="#000000"/>
+
+        <ImageView
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:padding="10sp"
+            android:layout_weight="1"
+            android:id="@+id/iv_loc"
+            android:src="@drawable/b"/>
+
+        <View
+            android:layout_width="1sp"
+            android:layout_height="match_parent"
+            android:background="#000000"/>
+
+        <ImageView
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:padding="10sp"
+            android:id="@+id/iv_help"
+            android:layout_weight="1"
+            android:src="@drawable/c"/>
+
+
+
 
 
     </LinearLayout>
-</LinearLayout>
+
+
+
+
+</RelativeLayout>

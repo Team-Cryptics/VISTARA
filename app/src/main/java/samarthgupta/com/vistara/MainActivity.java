@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.estimote.sdk.Beacon;
@@ -19,7 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity implements BeaconManager.RangingListener, BeaconManager.MonitoringListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener,BeaconManager.RangingListener, BeaconManager.MonitoringListener {
 
     private static final String TAG = "TAG";
     BeaconManager beaconManager;
@@ -32,6 +34,9 @@ public class MainActivity extends AppCompatActivity implements BeaconManager.Ran
     TextView tvTemp;
 
     private static final int SPEECH_REQUEST_CODE = 0;
+
+    ImageView ivHelp, ivLoc, ivSpeech;
+
 
     public HashMap<Integer,Integer> bIDs;
 
@@ -49,6 +54,13 @@ public class MainActivity extends AppCompatActivity implements BeaconManager.Ran
         bIDs = new HashMap<>();
         bIDs.put(5,1);
         bIDs.put(20974,2);
+
+        ivHelp = (ImageView) findViewById(R.id.iv_help);
+        ivLoc = (ImageView) findViewById(R.id.iv_loc);
+        ivSpeech = (ImageView) findViewById(R.id.iv_speech);
+        ivSpeech.setOnClickListener(this);
+        ivHelp.setOnClickListener(this);
+        ivLoc.setOnClickListener(this);
 
         textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
@@ -256,4 +268,32 @@ public class MainActivity extends AppCompatActivity implements BeaconManager.Ran
     }
 
 
+    @Override
+    public void onClick(View view) {
+       if(view==ivHelp){
+           String pName = "Mr. Ram Kumar";
+           SmsManager smsManager = SmsManager.getDefault();
+
+           if(nearestBeacon!=0){
+               textToSpeech.speak("Sending assistance. Please wait.",TextToSpeech.QUEUE_FLUSH, null);
+               smsManager.sendTextMessage("95821847", null, "Help needed to "+pName+" near beacon number "+nearestBeacon+" ", null, null);
+           }
+       }
+
+       else if(view==ivLoc){
+           if(!dialog.equals("")){
+
+               Intent intent = new Intent(MainActivity.this, PopupActivity.class);
+               intent.putExtra("Notification", dialog);
+               startActivity(intent);
+           }
+
+        }
+
+        else{
+            displaySpeechRecognizer();
+       }
+
+
+    }
 }
