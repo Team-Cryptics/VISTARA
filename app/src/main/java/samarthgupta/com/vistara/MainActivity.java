@@ -47,6 +47,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 //        tvBc = (TextView) findViewById(R.id.tv_bc);
 
+        dialog = "You are near baggage counter. ";
+
+
         beaconManager = new BeaconManager(this);
 
         beaconManager.setRangingListener(this);
