@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
 
                 } else {
-                    Log.e("TTS", "Initilization Failed!");
+                    Log.e("TTS", "Initialization Failed!");
                 }
             }
         });
@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         }
 
                     } else {
-                        Log.e("TTS", "Initilization Failed!");
+                        Log.e("TTS", "Initialization Failed!");
                     }
                 }
             });
